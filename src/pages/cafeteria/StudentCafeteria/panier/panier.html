@@ -1,0 +1,76 @@
+<ion-header>
+    <ion-navbar hideBackButton color="primary">
+        <ion-title>Mon panier</ion-title>
+        <button ion-button icon-only menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding class="arriere">
+    <ion-list>
+        <div *ngFor="let p of paniers; let i = index;">
+            <button class="accordion" (click)="accordionClick($event,i,p)">
+                <ion-item-sliding #slidingItem class="k">
+                    <ion-item class="k">
+                        {{p.productID}}
+                    </ion-item>
+                    <ion-item-options side="right" class="item-inner">
+                        <button ion-button color="danger" (click)="onRemove(p)" class="btnEsp">
+                            <ion-icon name="trash"></ion-icon>
+                        </button>
+                    </ion-item-options>
+                </ion-item-sliding>
+            </button>
+
+            <div class="panel">
+                <form #f="ngForm" class="login-box" (ngSubmit)="onEditItem(p)">
+                    <br>
+
+                    <p class="article-content ">
+                        <span class="margeChar"> Note : </span>
+                        <input class="input" type="text" name="note" [(ngModel)]="p.note" placeholder={{p.quantity}} required="">
+                    </p>
+                    <p class="article-content ">
+                        <span class="titre"> Quantite : </span>
+                        <input class="input" type="text" name="quantity" [(ngModel)]="p.quantity" placeholder={{p.quantity}} required="">
+                    </p>
+                    <p class="article-content ">
+                        <span class="margeChar2"> Heure: </span>
+                        <input class="input" onfocus="(this.type='DateTime')" type="text" name="time" [(ngModel)]="p.time" placeholder={{p.time}}
+                            required="">
+                    </p>
+                    <p class="article-content ">
+                            <span class="margeChar2"> Supplements: </span>
+                            <select  multiple name="supplements" [(ngModel)]="p.supplements" >
+                                <option *ngFor="let o of SuppPanier;" [value]="{priceSupp:o.price,nameSupp:o.name}"  selected="selected" >{{o.name}}</option>
+                                <option *ngFor="let o of SuppProduct;" [value]="{priceSupp:o.price,nameSupp:o.name}"  >{{o.name}}</option>
+                            
+                                   </select>
+                    </p>
+
+
+                    <br>
+                    <button class="btnt" ion-button="" type="submit" block="" [disabled]="!f.valid">Sauvegarder</button>
+                    <br>
+                    
+                </form>
+            </div>
+        </div>
+        <br>
+
+
+    </ion-list>
+
+
+    <ion-footer>
+        <ion-toolbar>
+            <ion-row>
+                <ion-title>Prix total: {{totalPrice}}</ion-title>
+                <button ion-button icon-only icon-end small class="btnt" (click)="Order()">
+                    <ion-icon name='md-checkmark'></ion-icon>
+                </button>
+            </ion-row>
+        </ion-toolbar>
+    </ion-footer>
+</ion-content>

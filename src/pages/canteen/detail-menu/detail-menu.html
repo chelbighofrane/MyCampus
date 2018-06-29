@@ -1,0 +1,152 @@
+<!--
+  Generated template for the DetailMenuPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>detail-menu</ion-title>
+    
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="arriere">
+
+  <br><br>
+    <button class="accordion" icon-right><span class="jaune">R</span><span class="blanc">epas</span>
+        <ion-icon name="arrow-dropright" class="i"></ion-icon>
+    </button>
+        <div class="panel">
+          <form #frepas="ngForm" (ngSubmit)="onAddRepas(frepas.value)">
+           <span *ngIf="addrepas==true">
+            <ion-buttons end="" >
+            <button ion-button type="submit" [disabled]="!frepas.valid" icon-only class="borded">
+                <ion-icon name="checkmark"></ion-icon>
+              </button>
+              </ion-buttons> 
+           </span>
+            
+            <p class="article-content "><b class="char-entre">Entrée:</b>
+                <span *ngIf="startrepat==true;" (click)="onRepasStart()">{{meal.starterRepat}}</span>
+                <span *ngIf="startrepat==false;">
+                    <input class="input" type="text" name="startrp" ngModel placeholder="{{meal.starterRepat}}" required="">
+                </span>
+                
+            </p>
+
+            <p class="article-content"><b class="char-plat">Principal: </b> 
+                <span *ngIf="mainrepas==true;" (click)="onRepasMain()">{{meal.mainCourseRepat}}</span>
+                <span *ngIf="mainrepas==false;">
+                    <input class="input" type="text" name="principalrp" ngModel placeholder="{{meal.mainCourseRepat}}" required="">
+                </span>
+              </p>
+            <p class="article-content"><b class="char-dessert">Dessert: </b> 
+                <span *ngIf="dessertrepas==true;" (click)="onRepasDessert()">{{meal.dessertRepat}}</span>
+                <span *ngIf="dessertrepas==false;">
+                    <input class="input" type="text" name="dessertrp" ngModel placeholder="{{meal.dessertRepat}}" required="">
+                </span>
+            </p>
+        </form>
+            <p class="article-content"><b class="char-gelleri">Gallerie:</b></p>
+            
+            <ion-slides class="slids"> 
+              <span *ngFor="let im of photosRepat">
+                <ion-slide >
+                    <div class="arrowR left-arrowR" >
+                        <ion-icon name="close-circle" (click)="deleteImgRepat(im)"></ion-icon>
+                    </div>
+                    <img [hidden]="sliderLoading"  src="{{im.URLI}}" class="imgs"/>
+                
+                    
+
+                </ion-slide>
+                
+              </span>
+              
+                <ion-slide >
+<br><br><br><br><br><br>
+                        <ion-fab center middle bottom>
+                                <button class="btnt" ion-fab (click)="onPrendrephotoRepas()" ><ion-icon name="add"></ion-icon></button>
+
+                        </ion-fab>
+
+                </ion-slide>
+            </ion-slides>
+
+            
+           
+          </div>
+        
+
+        <button class="accordion" icon-right><span class="jaune">D</span><span class="blanc">inner</span> 
+           <ion-icon name="arrow-dropright" class="i"></ion-icon>
+        </button>
+        <div class="panel">
+            <form #fdinner="ngForm" (ngSubmit)="onAddDinner(fdinner.value)">
+              <span *ngIf="adddinner==true">
+                <ion-buttons end="" >
+                <button ion-button type="submit" [disabled]="!fdinner.valid" icon-only class="borded">
+                    <ion-icon name="checkmark"></ion-icon>
+                  </button>
+                  </ion-buttons> 
+              </span>
+                
+                <p class="article-content "><b class="char-entre">Entrée:</b>
+                    <span *ngIf="startdinner==true;" (click)="onDinnerStart()">{{meal.starterDinner}}</span>
+                    <span *ngIf="startdinner==false;">
+                        <input class="input" type="text" name="startdn" ngModel placeholder="{{meal.starterDinner}}" required="">
+                    </span>
+                    
+                </p>
+    
+                <p class="article-content"><b class="char-plat">Principal: </b> 
+                    <span *ngIf="maindinner==true;" (click)="onDinnerMain()">{{meal.mainCourseDinner}}</span>
+                    <span *ngIf="maindinner==false;">
+                        <input class="input" type="text" name="principaldn" ngModel placeholder="{{meal.mainCourseDinner}}" required="">
+                    </span>
+                  </p>
+                <p class="article-content"><b class="char-dessert">Dessert: </b> 
+                    <span *ngIf="dessertdinner==true;" (click)="onDinnerDessert()">{{meal.dessertDinner}}</span>
+                    <span *ngIf="dessertdinner==false;">
+                        <input class="input" type="text" name="dessertdn" ngModel placeholder="{{meal.dessertDinner}}" required="">
+                    </span>
+                </p>
+            </form>
+                <p class="article-content"><b class="char-gelleri">Gallerie:</b></p>
+                <ion-slides class="slids">
+                        <span *ngFor="let imd of photosDinner">
+                                <ion-slide >
+                                    <div class="arrowR left-arrowR" >
+                                        <ion-icon name="close-circle" (click)="deleteImgDinner(imd)"></ion-icon>
+                                    </div>
+                                    <img [hidden]="sliderLoading"  src="{{imd.URLI}}" class="imgs"/>
+                                </ion-slide>
+                              </span>
+                    <ion-slide >
+                        <br><br><br><br><br><br>
+                        <ion-fab center middle bottom>
+                                <button class="btnt" ion-fab (click)="onPrendrephotoDinner()"><ion-icon name="add"></ion-icon></button>
+
+                        </ion-fab>
+                        
+                    </ion-slide>
+                </ion-slides>
+                
+                
+               
+              </div>
+              
+              
+
+            
+                
+
+          
+    
+</ion-content>
+
+

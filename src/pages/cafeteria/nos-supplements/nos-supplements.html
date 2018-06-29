@@ -1,0 +1,76 @@
+<!--
+  Generated template for the NosPizzasPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar hideBackButton color="primary">
+        <ion-title>Nos Suppléments</ion-title>
+        <button ion-button icon-only menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding class="arriere">
+    <ion-fab top middle right>
+        <button class="btnt" ion-fab (click)="onNewItem(3)">
+            <ion-icon name="add"></ion-icon>
+        </button>
+    </ion-fab>
+    <ion-list>
+        <div *ngFor="let p of products; let i = index;">
+            <button class="accordion" (click)="accordionClick($event,i,p)">
+                <ion-item-sliding #slidingItem class="k">
+                    <ion-item class="k">
+                        {{p.name}}
+                    </ion-item>
+                    <ion-item-options side="right" class="item-inner">
+                        <button ion-button color="danger" (click)="onRemove(p)" class="btnEsp">
+                            <ion-icon name="trash"></ion-icon>
+                        </button>
+                    </ion-item-options>
+                </ion-item-sliding>
+            </button>
+
+            <div class="panel">
+                <form #f="ngForm" class="login-box" (ngSubmit)="onEditItem(p)">
+                    <span>
+                        <ion-buttons end="">
+                            <button ion-button icon-only clear (click)="takePic()">
+                                <ion-icon name="camera"></ion-icon>
+                            </button>
+                        </ion-buttons>
+                    </span>
+                    <p class="article-content ">
+                        <span class="titre"> Libelle: </span>
+                        <input class="input" type="text" name="name" [(ngModel)]="p.name" placeholder={{p.name}} required="">
+                    </p>
+                    <p class="article-content ">
+                        <span class="titre"> Prix: </span>
+                        <input class="input" s type="number" name="price" [(ngModel)]="p.price" placeholder={{p.price}} required="">
+                    </p>
+
+                    <p class="article-content " *ngIf="p.photo!='vide'">
+                        <span class="titre" *ngIf="p.photo!='vide'" >Photo:</span>
+                        <div class="divPhoto" *ngIf="p.photo!='vide'">
+                            <img src="{{this.photo}}" />
+                        </div>
+                        <br>
+
+                        <button class="btnt" ion-button="" type="submit" block="" [disabled]="!f.valid">Sauvegarder</button>
+                        <br>
+                </form>
+            </div>
+        </div>
+        <br>
+
+
+
+
+    </ion-list>
+
+
+</ion-content>

@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-navbar hideBackButton color="primary">
+    <ion-title>Mes Commandes</ion-title>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="arriere">
+  <ion-list>
+    <div *ngFor="let o of orders; let i = index;">
+     
+        <ion-item-sliding #slidingItem class="k">
+          <ion-item class="k">
+            Commande {{i+1}}
+          </ion-item>
+          <ion-item-options side="right" class="item-inner">
+            <button ion-button color="danger" (click)="onRemove(o)" class="btnEsp">
+              <ion-icon name="trash"></ion-icon>
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+      
+
+      <div class="panel">
+        <form #f="ngForm" class="login-box">
+          <br>
+
+          <p class="article-content ">
+            <span class="margeChar2">Etat :</span>
+            <span class="input">{{o.status}}</span>
+          </p>
+          <p class="article-content ">
+            <span class="margeChar2">Date :</span>
+            <span class="input">{{o.dateOrder}}</span>
+          </p>
+        
+          <p class="article-content ">
+            <span class="margeChar"> Produits : </span>
+           
+            <button ion-button *ngFor="let p of ordersProduct;let i=index;"  (click)="productDetails(p,o)" color={{colors[i]}}  >{{p.productID}}</button>
+          
+          </p>
+          <br>
+          <button class="btnt" ion-button="" type="submit" block="" [disabled]="!f.valid" (click)="onEditItem(o)">Sauvegarder</button>
+          <br>
+
+        </form>
+      </div>
+    </div>
+    <br>
+
+
+  </ion-list>
+</ion-content>

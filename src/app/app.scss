@@ -1,0 +1,95 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+
+@import "assets/scss/splash-screen.scss";
+@import "assets/scss/side-menu.scss";
+@import "assets/scss/event-card.scss";
+@import "assets/scss/feedback-modal.scss";
+@import "assets/scss/create-event-modal.scss";
+@import "assets/scss/event-details-modal.scss";
+@import "assets/scss/map-modal.scss";
+@import "assets/scss/spinner-yellow.scss";
+@import "assets/scss/edit-recruitment-quetions-modal.scss";
+
+@include media-breakpoint-down(sm) {
+
+
+    //campos
+  
+    .buttoncss{
+      color:#FFAB00!important;
+      }
+      
+    
+   
+  
+      .my-modal {
+          ion-backdrop {
+            visibility: visible !important;
+          }
+          .modal-wrapper {
+            border-radius: 10px 10px 0px 0px;
+            overflow: hidden;
+            top: 30%;
+            left: 0;
+            position: absolute;
+            width: 100%;
+            height: 70%;
+          }
+        }
+      }
+
+      .my-popup-modal{
+        ion-backdrop {
+         visibility: visible !important;
+        }
+        .modal-wrapper {
+        border-radius: 10px 10px 0px 0px;
+        overflow: hidden;
+        top: 15%;
+        left: 0%;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .alertcss{
+      h2{
+        
+      text-align: center!important;
+      }
+      h3{
+        text-align: center!important;
+      }
+      ion-backdrop {
+        visibility: visible !important;
+       }
+       .modal-wrapper {
+       border-radius: 10px 10px 10px 10px;
+       overflow: hidden;
+       top: 12%;
+       left: 7%;
+       position: absolute;
+       width: 86%;
+       height: 70%;
+     }
+      
+      $radio-md-color-on: #FFAB00;
+      
+    }

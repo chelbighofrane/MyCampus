@@ -1,0 +1,63 @@
+<!--
+  Generated template for the EtudiantMenuPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar hideBackButton color="primary">
+      <ion-title>Menu</ion-title>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+    </button>
+  
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content padding class="arriere">
+    <span *ngFor="let meal of mealList$ | async ">
+      <span *ngFor="let d of demo ">
+          <ion-card class="mycard" (click)="onDetailMenu(d)" *ngIf="((d| date:'EEEE dd/MM/yyyy')==(meal.date| date:'EEEE dd/MM/yyyy'))">
+            <ion-card-header class="myCardHeader" >
+                {{d | date:'EEEE dd/MM/yyyy'}}
+            </ion-card-header>
+
+            <ion-card-content class="mycontent" >
+                <span *ngIf="!((meal.starterRepat==defaultMsgEntre) && (meal.mainCourseRepat==defaultMsgMainCourse) && (meal.dessertRepat==defaultMsgDessert) );">
+     
+                <p class="sizetext"><span  class="jaune"><b>Repas : </b></span><br>
+                  
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="gris"><b class="char-entre">Entrée:</b><span *ngIf="meal.starterRepat != defaultMsgEntre">{{meal.starterRepat}}</span></span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="gris"><b class="char-plat">Principal: </b> <span *ngIf="meal.mainCourseRepat != defaultMsgMainCourse">{{meal.mainCourseRepat}}</span></span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="gris"><b class="char-dessert">Dessert: </b><span *ngIf="meal.dessertRepat != defaultMsgDessert">{{meal.dessertRepat}}</span></span><br>
+                    
+              </p>
+          
+
+              <br>
+
+            </span>
+
+            
+              <span *ngIf="!((meal.starterDinner==defaultMsgEntre) && (meal.mainCourseDinner==defaultMsgMainCourse) && (meal.dessertDinner==defaultMsgDessert) );">
+  
+              <p class="sizetext"><span class="jaune"><b>Dinner : </b></span><br>
+                
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="gris"><b class="char-entre">Entrée:</b>{{meal.starterDinner}}</span><br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="gris"><b class="char-plat">Principal: </b> {{meal.mainCourseDinner}}</span><br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="gris"><b class="char-dessert">Dessert:</b> {{meal.dessertDinner}}</span><br>
+                
+            </p>
+            </span>
+          
+          </ion-card-content>
+            
+          </ion-card>
+      </span>
+    </span>
+    
+        
+  </ion-content>

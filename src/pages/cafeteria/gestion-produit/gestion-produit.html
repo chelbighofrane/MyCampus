@@ -1,0 +1,127 @@
+<!--
+  Generated template for the GestionProduitPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Gestion Produits</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+
+  <ion-slides #slider (ionSlideWillChange)="moveButton($event)">
+    <ion-slide>
+
+      <ion-card-content class="card-background-page">
+
+        <ion-card>
+          <div Class="fancybutton" (click)="goTo()">
+            <img width="100%" height="100%" src="assets/imgs/nospizzas.png" />
+            <div class="card-title">Nos Pizzas</div>
+          </div>
+        </ion-card>
+
+        <ion-card>
+          <div Class="fancybutton" (click)="goToSandwitch()">
+            <img src="assets/imgs/sandwich1.png" />
+            <div class="card-title">Nos Sandwichs</div>
+          </div>
+        </ion-card>
+
+        <ion-card>
+          <div Class="fancybutton" (click)="goToSupplements()">
+            <img src="assets/imgs/supplements.png" />
+            <div class="card-title">Nos Supplements</div>
+          </div>
+        </ion-card>
+
+      </ion-card-content>
+
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card-content class="card-background-page">
+
+        <ion-card>
+          <div Class="fancybutton" (click)="goToHotDrinks()">
+            <img src="assets/imgs/bc.png" />
+            <div class="card-title">Boissons Chaudes
+            </div>
+          </div>
+        </ion-card>
+
+        <ion-card>
+          <div Class="fancybutton" (click)="goToColdDrinks()">
+            <img src="assets/imgs/bf.png" />
+            <div class="card-title">Boissons Froides</div>
+          </div>
+        </ion-card>
+
+
+        <ion-card>
+          <div Class="fancybutton" (click)="goToWater()">
+            <img src="assets/imgs/water.png" />
+            <div class="card-title">Eau</div>
+          </div>
+        </ion-card>
+
+      </ion-card-content>
+    </ion-slide>
+
+
+
+    <ion-slide>
+      <ion-card-content class="card-background-page">
+
+        <div Class="fancybutton" (click)="goToViennoiseries()">
+          <ion-card>
+            <img src="assets/imgs/viennoiserie.png" />
+            <div class="card-title">Nos Viennoiserie</div>
+          </ion-card>
+        </div>
+        <div Class="fancybutton" (click)="goToSnacks()">
+          <ion-card>
+            <img src="assets/imgs/divers1.jpg" id="divers" />
+            <div class="card-title">Divers</div>
+          </ion-card>
+        </div>
+
+      </ion-card-content>
+
+    </ion-slide>
+  </ion-slides>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-segment color="secondary" [(ngModel)]="page">
+      <ion-segment-button value="0" (click)="selectedTab(0)">
+        <ion-icon>
+          <img src="assets/imgs/pizza.png">
+        </ion-icon>
+      </ion-segment-button>
+
+      <ion-segment-button value="1" (click)="selectedTab(1)">
+        <ion-icon>
+          <ion-icon>
+            <img src="assets/imgs/soda.png">
+          </ion-icon>
+        </ion-icon>
+      </ion-segment-button>
+
+      <ion-segment-button value="2" (click)="selectedTab(2)">
+        <ion-icon>
+          <ion-icon>
+            <img src="assets/imgs/cupcake.png">
+          </ion-icon>
+        </ion-icon>
+      </ion-segment-button>
+
+    </ion-segment>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,44 @@
+page-popup-comment {
+
+    .parag{
+        text-align: center;
+        font-size: 15px;
+    }
+    .back{
+        background: #f8f8f8;
+    }
+
+    .titre{text-align: center;}
+
+    .starend{
+        height: 24px;
+        width: 24px;
+    }
+
+    .star{
+        height: 24px;
+        width: 24px;
+        float: left;
+        left: 50%;
+        
+    }
+
+    .butt-left{
+        float: left;
+    }
+
+    .butt{
+        //background: transparent;
+        //background: #f8f8f8;
+        color: #FFAB00;
+        //color: rgb(105, 105, 103);
+        font-family: roboto;
+        font-size: 15px;
+        //border-left: 120px; 
+    }
+
+    .buttons{
+        margin-left: 50px;
+    }
+
+}

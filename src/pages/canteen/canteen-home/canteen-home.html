@@ -1,0 +1,41 @@
+<ion-header>
+
+    <ion-navbar hideBackButton color="primary">
+
+        
+        <button ion-button icon-only menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+
+        <ion-title>Restaurant</ion-title>
+        
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="back">
+
+        
+
+        <ion-card>
+                <ion-card-header>
+                  Reservation par jour (dernier semaine)
+                </ion-card-header>
+                <ion-card-content>
+                  <canvas #barCanvas></canvas>
+                </ion-card-content>
+        </ion-card>
+        
+        <ion-card>
+                <ion-card-header>
+                  Evolution commentaire par mois
+                </ion-card-header>
+                <ion-card-content>
+                    <canvas id="rate-chart"></canvas>
+                </ion-card-content>
+        </ion-card>
+
+        
+
+</ion-content>

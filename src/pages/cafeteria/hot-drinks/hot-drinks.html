@@ -1,0 +1,105 @@
+<!--
+  Generated template for the NosPizzasPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar hideBackButton color="primary">
+      <ion-title>Nos Boissons Chaudes</ion-title>
+      <button ion-button icon-only menuToggle>
+          <ion-icon name="menu"></ion-icon>
+      </button>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding class="arriere">
+  <ion-fab top middle right>
+      <button class="btnt" ion-fab (click)="onNewItem(1)">
+          <ion-icon name="add"></ion-icon>
+      </button>
+  </ion-fab>
+  <ion-list>
+      <div *ngFor="let p of products; let i = index;">
+          <button class="accordion" (click)="accordionClick($event,i,p)">
+              <ion-item-sliding #slidingItem class="k">
+                  <ion-item class="k">
+                      {{p.name}}
+                  </ion-item>
+                  <ion-item-options side="right" class="item-inner">
+                      <button ion-button color="danger" (click)="onRemove(p)" class="btnEsp">
+                          <ion-icon name="trash"></ion-icon>
+                      </button>
+                  </ion-item-options>
+              </ion-item-sliding>
+          </button>
+
+          <div class="panel">
+              <span>
+                  <ion-buttons end="">
+                      <button ion-button icon-only clear (click)="takePic()">
+                          <ion-icon name="camera"></ion-icon>
+                      </button>
+                  </ion-buttons>
+              </span>
+              <form #f="ngForm" class="login-box" (ngSubmit)="onEditItem(p)">
+                  <p class="article-content ">
+                      <span class="titre"> Libelle: </span>
+                      <input class="input" type="text" name="name" [(ngModel)]="p.name" placeholder={{p.name}} required="">
+                  </p>
+
+                  <p class="article-content ">
+                      <span class="titre">Description:</span>
+                      <br>
+                      <span>
+
+                          <textarea class="input" cols="50" name="description" [(ngModel)]="p.description" placeholder={{p.description}} required=""></textarea>
+                      </span>
+                  </p>
+
+                  <p class="article-content ">
+                      <span class="titre"> Prix: </span>
+                      <input class="input" s type="number" name="price" [(ngModel)]="p.price" placeholder={{p.price}} required="">
+                  </p>
+
+                  <p class="article-content " >
+                      <span class="titre" *ngIf="p.photo!='vide'">Photo:</span>
+                      <div class="divPhoto" *ngIf="p.photo!='vide'">
+                          <img src="{{this.photo}}" />
+                      </div>
+
+                      <p class="article-content ">
+                          <ion-checkbox name="onSale" [(ngModel)]="p.onSale" checked="p.onSale" (click)="onSale()"></ion-checkbox>
+                          &nbsp;
+
+                          <span class="titre">Promotion</span>
+                      </p>
+                      <p class="article-content" *ngIf="p.onSale">
+                          <span class="marge">Nouveau:</span>
+                          <input class="input" type="number" name="priceOnSale" [(ngModel)]="p.priceOnSale" placeholder={{p.priceOnSale}} required="">
+                      </p>
+                      <p class="article-content" *ngIf="p.onSale">
+                          <span class="margeChar2">Debut:</span>
+                          &nbsp;
+                          <input class="input" onfocus="(this.type='date')" name="startDate" [(ngModel)]="p.startDate" placeholder={{p.startDate|date}}
+                              required="">
+                      </p>
+                      <p class="article-content" *ngIf="p.onSale">
+                          <span class="margeChar1">Fin:</span>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          <input class="input" onfocus="(this.type='date')" name="endDate" [(ngModel)]="p.endDate" placeholder={{p.endDate|date}} required="">
+                      </p>
+                      <br>
+
+                      <button class="btnt" ion-button="" type="submit" block="" [disabled]="!f.valid">Sauvegarder</button>
+                      <br>
+              </form>
+          </div>
+      </div>
+
+
+  </ion-list>
+
+
+</ion-content>

@@ -1,0 +1,92 @@
+<!--
+  Generated template for the ReservationPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar hideBackButton color="primary">
+
+        <ion-title>Reservation</ion-title>
+        <button ion-button icon-only menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+    </ion-navbar>
+
+</ion-header>
+
+
+
+<ion-content padding class="back">
+<br>
+
+<ion-grid>
+    <ion-row>
+      <ion-col col-4 >
+          <span class="custom-select" >
+          <select #t (change)="changeDate(t.value)">
+
+          
+              <option *ngIf="(demo[0]| date:'EEEE')!='Sunday'"  [value]="demo[0]">{{demo[0]| date:'dd/MM/yyyy'}}</option>
+              <option *ngIf="(demo[1]| date:'EEEE')!='Sunday'"  [value]="demo[1]">{{demo[1] | date:'dd/MM/yyyy'}}</option>
+              <option *ngIf="(demo[2]| date:'EEEE')!='Sunday'" [value]="demo[2]">{{demo[2]| date:'dd/MM/yyyy'}}</option>
+              <option *ngIf="(demo[3]| date:'EEEE')!='Sunday'"  [value]="demo[3]">{{demo[3] | date:'dd/MM/yyyy'}}</option>
+              <option *ngIf="(demo[4]| date:'EEEE')!='Sunday'" [value]="demo[4]">{{demo[4]| date:'dd/MM/yyyy'}}</option>
+              <option *ngIf="(demo[5]| date:'EEEE')!='Sunday'"  [value]="demo[5]">{{demo[5] | date:'dd/MM/yyyy'}}</option>
+              <option *ngIf="(demo[6]| date:'EEEE')!='Sunday'" [value]="demo[6]">{{demo[6]| date:'dd/MM/yyyy'}}</option>
+              
+              
+            </select>
+            </span>
+      </ion-col>
+      <ion-col col-8 >
+          <div class="search-container">
+          <input type="text" placeholder="Recherche.." name="search" (input)="onSearchChange($event.target.value)">
+      </div>
+        </ion-col>
+        
+         
+    </ion-row>
+  </ion-grid>
+
+  
+    <br>
+    
+    <ion-list>
+ 
+        <ion-item-sliding #slidingItem *ngFor="let res of reservefiltre" >
+        
+            <ion-item class="item" [hidden]="res.checked!='false'"> 
+                <div class="feedback-header">
+                    <div class="avatar-container">
+                        <div class="avatar-green-bg">
+                            <img src="assets/imgs/user_comment.png">
+                        </div>
+                    </div>
+                    <div class="user-details-container">
+                        <p class="user-full-name">{{res.userID}}</p>
+                        <p class="date">{{res.date| date:'dd/MM/yyyy : HH:mm'}}</p>
+                    </div>
+                    <p end="" class="plat"><b>{{res.quantity}}</b></p>
+                </div>
+                
+          
+            </ion-item>
+           
+            <ion-item-options class="wid" [hidden]="res.checked!='false'">
+             
+                 <button ion-button color="danger"  (click)="onRemove(res)">
+            
+                      <ion-icon name="md-trash"></ion-icon>
+                      <span class="txtdel"><b>Supprimer</b></span>
+                 </button>
+           
+            </ion-item-options>
+        
+        </ion-item-sliding>
+     </ion-list>
+    
+     
+      
+
+</ion-content>

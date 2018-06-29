@@ -1,0 +1,143 @@
+page-products {
+    
+      
+
+    .card-background-page {
+      padding: 0;
+    }
+        
+    .arriere{
+        background: #f8f8f8;
+}
+page-modal-page-commentaire-conteen {
+
+    .color-item{
+        background-color: transparent;
+        border :1px;
+        border-color: #00AA8D;
+    }
+
+      .btn {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.875rem;
+        line-height: 1.5;
+        border-radius: 0.2rem;
+      }
+    .btn-outline-primary {
+        color: #00AA8D;
+        background-color: rgb(249, 253, 252);
+        background-image: none;
+        border-color: #00AA8D;
+
+        padding: 0.25rem 0.5rem;
+      }
+
+    .list-md{
+        margin :10px 20px 20px ;
+    }
+    .reponse{
+        border-top: 10px !important;
+        border-left: 20px !important;
+    }
+
+    .back{
+        background: #f8f8f8; 
+    }
+
+        .feedback-card {
+            //width: 100%;
+            background: white;
+            border-radius: 4px;
+            padding: 20px;
+            box-sizing: border-box;
+            //margin: 10px 0px;
+            margin-left: 20px;
+            margin-right: 20px;
+            margin-top: 10px;
+            
+            -webkit-box-shadow: 0px 0px 21px 0px rgba(0,0,0,0.2);
+            -moz-box-shadow: 0px 0px 21px 0px rgba(0,0,0,0.2);
+            box-shadow: 0px 0px 21px 0px rgba(0,0,0,0.2);
+
+            .feedback-header {
+                width: 100%;
+                box-sizing: border-box;
+
+                &:after {
+                    content: "";
+                    display: block;
+                    clear: both;
+                }
+
+                .avatar-container {
+                    width: 50px;
+                    height: 50px;
+                    float: left;
+                    margin-right: 20px;
+                    box-sizing: border-box;
+
+                    .avatar-green-bg {
+                        width: 50px;
+                        height: 50px;
+                        box-sizing: border-box;
+                        // background: rgba(0, 170, 141, 0.6);
+                        background: color($colors, light);
+                        border-radius: 50%;
+                        border: 2px solid;
+                        border-color: rgba(255, 171, 0, 0.8);
+                        position: relative;
+
+                        img {
+                            position: absolute;
+                            top: 0;
+                            bottom: 0;
+                            left: 0;
+                            right: 0;
+                            border-radius: 50%;
+                        }
+                    }
+                }
+
+                .user-details-container {
+                    float: left;
+
+                    p {
+                        margin: 0;
+                    }
+
+                    .user-full-name {
+                        font-weight: bolder;
+                        font-size: 16px;
+                        margin-bottom: 4px;
+                    }
+
+                    .date {
+                        font-weight: lighter;
+                        font-size: 12px;
+                        color: #838282;
+                        margin-bottom: 2px;
+                    }
+                }
+            }
+
+            .feedback-body {
+
+                p {
+                    text-align: justify;
+                    margin: 0;
+                    margin-top: 18px;
+                }
+            }
+        }
+    }
+
+
+      
+      }
+
+    
+    
+      
+
+
+

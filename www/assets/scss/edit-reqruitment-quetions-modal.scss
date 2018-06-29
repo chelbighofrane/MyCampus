@@ -1,0 +1,37 @@
+.md, .ios {
+
+    .edit-reqruitment-quetions-modal {
+        color: white;
+        background: url(../assets/imgs/reqruitment-bg.jpg) !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+        background-size: cover !important;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        min-height: 100%;
+        height: 100%;
+        width: 100%;
+
+        .edit-reqruitment-quetions-modal-main-container {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            position: relative;
+
+            .close-icon {
+                position: absolute;
+                right: 20px;
+                font-size: 20px;
+                color: white;
+            }
+
+            .edit-reqruitment-quetions-modal-header {
+                font-size: 22px;
+                font-weight: bolder;
+            }
+        }
+    }
+}

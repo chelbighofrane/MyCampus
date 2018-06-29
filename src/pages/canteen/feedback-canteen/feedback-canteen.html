@@ -1,0 +1,87 @@
+<!--
+  Generated template for the FeedbackCanteenPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar hideBackButton color="primary">
+    <ion-title>Feedback</ion-title>
+    <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+    </button>
+
+
+
+  </ion-navbar>
+
+</ion-header>
+
+
+
+<ion-content padding class="arriere">
+  
+        <ion-card class="mycard" *ngFor="let meal of meals">
+          
+            <ion-card-header class="myCardHeader" >
+                {{meal.date | date:'EEEE dd/MM/yyyy'}}
+            </ion-card-header>
+        
+            <ion-card-content class="mycontent" >
+
+                    <ion-row justify-content-center>
+                  
+                        <img src="assets/imgs/star-jaune.png" alt="star" class="star" *ngIf="meal.moyennefeed>=0.75">
+                        <img src="assets/imgs/star-jaune.png" alt="star" class="star" *ngIf="meal.moyennefeed>=1.75">
+                        <img src="assets/imgs/star-jaune.png" alt="star" class="star" *ngIf="meal.moyennefeed>=2.75">
+                        <img src="assets/imgs/star-jaune.png" alt="star" class="star" *ngIf="meal.moyennefeed>=3.75">
+                        <img src="assets/imgs/star-jaune.png" alt="star" class="starend" *ngIf="meal.moyennefeed>=4.75">
+
+                        <img src="assets/imgs/star-jaune-moy.png" alt="star" class="star" *ngIf="meal.moyennefeed>=0.25 && meal.moyennefeed<0.75">
+                        <img src="assets/imgs/star-jaune-moy.png" alt="star" class="star" *ngIf="meal.moyennefeed>=1.25 && meal.moyennefeed<1.75">
+                        <img src="assets/imgs/star-jaune-moy.png" alt="star" class="star" *ngIf="meal.moyennefeed>=2.25 && meal.moyennefeed<2.75">
+                        <img src="assets/imgs/star-jaune-moy.png" alt="star" class="star" *ngIf="meal.moyennefeed>=3.25 && meal.moyennefeed<3.75">
+                        <img src="assets/imgs/star-jaune-moy.png" alt="star" class="starend" *ngIf="meal.moyennefeed>=4.25 && meal.moyennefeed<4.75">
+
+
+                        <img src="assets/imgs/star-gris.png" alt="star" class="star" *ngIf="meal.moyennefeed<0.25">
+                        <img src="assets/imgs/star-gris.png" alt="star" class="star" *ngIf="meal.moyennefeed<1.25">
+                        <img src="assets/imgs/star-gris.png" alt="star" class="star" *ngIf="meal.moyennefeed<2.25">
+                        <img src="assets/imgs/star-gris.png" alt="star" class="star"  *ngIf="meal.moyennefeed<3.25">
+                        <img src="assets/imgs/star-gris.png" alt="star" class="starend" *ngIf="meal.moyennefeed<4.25">
+                        
+                    </ion-row> 
+                    <br>
+
+              <p class="sizetext"><span  class="jaune"><b>Repas : </b></span><br>
+
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="gris"><b class="char-entre">Entrée:</b>{{meal.starterRepat}}</span><br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="gris"><b class="char-plat">Principal: </b> {{meal.mainCourseRepat}}</span><br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="gris"><b class="char-dessert">Dessert: </b>{{meal.dessertRepat}}</span><br>
+                  
+             </p>
+            <br>
+              <p class="sizetext"><span class="jaune"><b>Dinner : </b></span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="gris"><b class="char-entre">Entrée:</b>{{meal.starterDinner}}</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="gris"><b class="char-plat">Principal: </b> {{meal.mainCourseDinner}}</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="gris"><b class="char-dessert">Dessert:</b> {{meal.dessertDinner}}</span><br>                  
+              </p>
+
+              <ion-row justify-content-center class="centr action-sheets-basic-page " >
+                    <button ion-button icon-left clear small class="butt" (click)="openMenu(meal,'canteen')">
+                            <ion-icon name="text"></ion-icon>
+                            <div ><span *ngIf="meal.feedbacks">{{meal.feedbacks.length}}</span><span *ngIf="meal.feedbacks== null">0</span> COMMENTAIRE</div>
+                          </button>
+                    <!button (click)="openMenu()" class="butt" block><!/button>
+                
+              </ion-row>
+            
+            </ion-card-content>
+          
+        
+          
+          </ion-card>
+    
+          
+    </ion-content>
